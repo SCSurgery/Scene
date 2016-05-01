@@ -75,6 +75,9 @@ class SceneWidget:
     if self.comboBoxSeleccionCargarGuardar.currentIndex == 0:
         try:
             print ("Cargaste: " + self.name)
+            filename = 'C:\Users\Camilo_Q\Documents\GitHub\Scene\Scenes/'+self.name+'/'+self.name+'.mrml'
+            print (filename)
+            slicer.util.loadScene(filename)
         except(AttributeError):
             qt.QMessageBox.critical(slicer.util.mainWindow(),'Error cargar/guardar', 'Espacio en blanco')
 
@@ -82,7 +85,10 @@ class SceneWidget:
     else:
         try:
             print ("Gurdaste: " + self.name)
-            
+            filename = 'C:\Users\Camilo_Q\Documents\GitHub\Scene\Scenes/'+self.name
+            slicer.util.saveScene(filename)
+
+
         except(AttributeError):
             qt.QMessageBox.critical(slicer.util.mainWindow(),'Error cargar/guardar', 'Espacio en blanco')
     
